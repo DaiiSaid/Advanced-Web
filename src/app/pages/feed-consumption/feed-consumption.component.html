@@ -1,0 +1,55 @@
+<div class="feed-consumption-container">
+  <h2>Feed Consumption</h2>
+
+  <!-- Add Feed Consumption Form -->
+  <div class="feed-consumption-form">
+    <h3>Add Feed Consumption</h3>
+    <form (submit)="createFeedConsumption(form.value)" #form="ngForm">
+      <mat-form-field>
+        <mat-label>Bird ID</mat-label>
+        <input matInput type="number" id="birdId" name="birdId" ngModel required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" id="amount" name="amount" ngModel required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Feed Type</mat-label>
+        <input matInput type="text" id="feedType" name="feedType" ngModel required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput type="date" id="consumptionDate" name="consumptionDate" ngModel required>
+      </mat-form-field>
+      <button mat-raised-button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="feed-consumption-list">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Bird ID</th>
+          <th>Amount</th>
+          <th>Feed Type</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedConsumption of feedConsumptions">
+          <td>{{ feedConsumption.id }}</td>
+          <td>{{ feedConsumption.birds.birdId }}</td>
+          <td>{{ feedConsumption.amount }}</td>
+          <td>{{ feedConsumption.feedType }}</td>
+          <td>{{ feedConsumption.consumptionDate }}</td>
+          <td>
+            <button mat-raised-button color="primary" (click)="updateFeedConsumption(feedConsumption)">Update</button>
+            <button mat-raised-button color="warn" (click)="deleteFeedConsumption(feedConsumption.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

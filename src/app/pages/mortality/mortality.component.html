@@ -1,0 +1,31 @@
+<div>
+  <h1>Mortality Page</h1>
+
+  <!-- Mortality Form -->
+  <form (ngSubmit)="createMortality()">
+    <mat-form-field>
+      <mat-label>Cause:</mat-label>
+      <input matInput type="text" id="cause" name="cause" [(ngModel)]="newMortality.cause" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Count:</mat-label>
+      <input matInput type="number" id="count" name="count" [(ngModel)]="newMortality.count" required>
+    </mat-form-field>
+
+    <button mat-button type="submit">Add Mortality</button>
+  </form>
+
+  <!-- Mortality List -->
+  <div>
+    <h2>Mortality List</h2>
+    <ul>
+      <li *ngFor="let mortality of mortalities">
+        <span>{{ mortality.cause }} - {{ mortality.count }}</span>
+        <button mat-icon-button (click)="deleteMortality(mortality.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

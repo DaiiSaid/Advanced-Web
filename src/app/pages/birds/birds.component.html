@@ -1,0 +1,45 @@
+ <h1>Create Bird</h1>
+
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field c>
+    <mat-label>Name:</mat-label>
+    <input matInput type="text" id="name" name="name" required [(ngModel)]="bird.name" >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Breed:</mat-label>
+    <input matInput type="text" id="breed" name="breed" [(ngModel)]="bird.breed">
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <mat-label>Gender:</mat-label>
+    <mat-select id="gender" name="gender" [(ngModel)]="bird.gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <mat-label>Birth Date:</mat-label>
+    <input matInput type="date" id="birthDate" name="birthDate" required [(ngModel)]="bird.birthDate">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Color:</mat-label>
+    <input matInput type="text" id="color" name="color" [(ngModel)]="bird.color">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Weight:</mat-label>
+    <input matInput type="number" [(ngModel)]="bird.weight" name="weight" required>
+  </mat-form-field>
+
+  <!-- <mat-checkbox [(ngModel)]="bird.availability">Availability</mat-checkbox> -->
+
+  <button mat-raised-button color="primary" type="submit">Create Bird</button>
+ </form> 
+
+<div>
+  <app-birds-list></app-birds-list>
+</div> 

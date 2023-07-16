@@ -1,0 +1,54 @@
+/* Align form fields horizontally */
+form {
+  display: grid;
+  gap: 16px;
+}
+
+/* Increase spacing between form fields */
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+/* Adjust width of input fields */
+mat-form-field,
+mat-select {
+  width: 100%;
+}
+
+/* Align checkbox label with checkbox */
+.mat-checkbox-label {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* Add margin to the submit button */
+button[type="submit"] {
+  margin-top: 16px;
+}
+/* Align form fields horizontally */
+form {
+  display: grid;
+  gap: 16px;
+}
+
+/* Increase spacing between form fields */
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+/* Adjust width of input fields */
+mat-form-field,
+mat-select {
+  width: 100%;
+}
+
+/* Align checkbox label with checkbox */
+.mat-checkbox-label {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* Add margin to the submit button */
+button[type="submit"] {
+  margin-top: 16px;
+}

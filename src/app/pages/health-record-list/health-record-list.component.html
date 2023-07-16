@@ -1,0 +1,40 @@
+<h2>Health Records</h2>
+
+<div *ngIf="healthRecords.length === 0">No health records found.</div>
+
+<table mat-table *ngIf="healthRecords.length > 0" class="mat-elevation-z8">
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.date | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bird">
+    <th mat-header-cell *matHeaderCellDef>Bird</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.birds.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="vaccinated">
+    <th mat-header-cell *matHeaderCellDef>Vaccinated</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.vaccinated ? 'Yes' : 'No' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="medication">
+    <th mat-header-cell *matHeaderCellDef>Medication</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.medication }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="symptoms">
+    <th mat-header-cell *matHeaderCellDef>Symptoms</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.symptoms }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let healthRecord">
+      <button mat-button (click)="viewDetails(healthRecord.id)">View Details</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let healthRecord; columns: displayedColumns;"></tr>
+</table>

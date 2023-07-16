@@ -1,0 +1,74 @@
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+form {
+  margin-bottom: 24px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+td button {
+  margin-right: 8px;
+}
+
+div.empty-message {
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* Angular Material Styles */
+
+mat-form-field {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+mat-checkbox {
+  margin-bottom: 16px;
+}
+
+mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 8px;
+  text-align: left;
+}
+
+mat-header-cell {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+mat-cell button {
+  margin-right: 8px;
+}
+
+div.empty-message {
+  margin-top: 16px;
+  font-style: italic;
+}

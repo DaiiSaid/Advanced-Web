@@ -1,0 +1,72 @@
+<h2>Health Record</h2>
+
+<!-- Form to add a new health record -->
+<form (submit)="createHealthRecord()" [formGroup]="healthRecordForm">
+  <mat-form-field>
+    <mat-label>Bird</mat-label>
+    <mat-select formControlName="birdId" required>
+      <mat-option *ngFor="let bird of birds" [value]="bird.birdId">{{ bird.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput type="date" formControlName="date" required>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="vaccinated">Vaccinated</mat-checkbox>
+
+  <mat-form-field>
+    <mat-label>Medication</mat-label>
+    <input matInput type="text" formControlName="medication">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Symptoms</mat-label>
+    <textarea matInput formControlName="symptoms"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Health Record</button>
+</form>
+
+<!-- Display existing health records -->
+<div *ngIf="healthRecords.length === 0">No health records found.</div>
+
+<table *ngIf="healthRecords.length > 0" mat-table>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.date | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bird">
+    <th mat-header-cell *matHeaderCellDef>Bird</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.birds.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="vaccinated">
+    <th mat-header-cell *matHeaderCellDef>Vaccinated</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.vaccinated ? 'Yes' : 'No' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="medication">
+    <th mat-header-cell *matHeaderCellDef>Medication</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.medication }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="symptoms">
+    <th mat-header-cell *matHeaderCellDef>Symptoms</th>
+    <td mat-cell *matCellDef="let healthRecord">{{ healthRecord.symptoms }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let healthRecord">
+      <button mat-icon-button color="warn" (click)="deleteHealthRecord(healthRecord.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

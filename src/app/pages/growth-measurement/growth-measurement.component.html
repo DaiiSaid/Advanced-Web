@@ -1,0 +1,73 @@
+<h2>Growth Measurement</h2>
+
+<form [formGroup]="growthMeasurementForm" (ngSubmit)="createGrowthMeasurement()">
+  <mat-form-field>
+    <mat-label>Bird:</mat-label>
+    <mat-select formControlName="birdId" required>
+      <mat-option *ngFor="let bird of birds" [value]="bird.id">{{ bird.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" formControlName="weight" required>
+    <mat-label>Weight:</mat-label>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" formControlName="bodyLength" required>
+    <mat-label>Body Length:</mat-label>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" formControlName="wingSpan" required>
+    <mat-label>Wing Span:</mat-label>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" formControlName="legLength" required>
+    <mat-label>Leg Length:</mat-label>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Growth Measurement</button>
+</form>
+
+<div *ngIf="measurements.length === 0">No growth measurements found.</div>
+
+<table *ngIf="measurements.length > 0" mat-table>
+  <ng-container matColumnDef="bird">
+    <th mat-header-cell *matHeaderCellDef>Bird</th>
+    <td mat-cell *matCellDef="let measurement">{{ measurement.bird.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let measurement">{{ measurement.weight }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bodyLength">
+    <th mat-header-cell *matHeaderCellDef>Body Length</th>
+    <td mat-cell *matCellDef="let measurement">{{ measurement.bodyLength }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="wingSpan">
+    <th mat-header-cell *matHeaderCellDef>Wing Span</th>
+    <td mat-cell *matCellDef="let measurement">{{ measurement.wingSpan }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="legLength">
+    <th mat-header-cell *matHeaderCellDef>Leg Length</th>
+    <td mat-cell *matCellDef="let measurement">{{ measurement.legLength }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let measurement">
+      <button mat-icon-button color="warn" (click)="deleteGrowthMeasurement(measurement.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let measurement; columns: displayedColumns;"></tr>
+</table>

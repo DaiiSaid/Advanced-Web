@@ -1,0 +1,61 @@
+/* Add Water Intake Form */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+/* Water Intake Table */
+h2 {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hide table when no records found */
+div[ngIf="waterIntakes.length === 0"] {
+  margin-top: 20px;
+  color: #888;
+}
+
+/* Styling for delete button */
+button[mat-icon-button] {
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  min-width: 0;
+  min-height: 0;
+}
+
+button[mat-icon-button] .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

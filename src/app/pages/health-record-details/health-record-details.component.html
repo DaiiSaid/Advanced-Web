@@ -1,0 +1,30 @@
+<div *ngIf="healthRecord">
+  <h2>Health Record Details</h2>
+
+  <div class="form-field">
+    <mat-label>Date:</mat-label>
+    <p>{{ healthRecord.date | date }}</p>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Bird:</mat-label>
+    <p>{{ healthRecord.birds.name }}</p>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Vaccinated:</mat-label>
+    <p>{{ healthRecord.vaccinated ? 'Yes' : 'No' }}</p>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Medication:</mat-label>
+    <p>{{ healthRecord.medication }}</p>
+  </div>
+
+  <div class="form-field">
+    <mat-label>Symptoms:</mat-label>
+    <p>{{ healthRecord.symptoms }}</p>
+  </div>
+
+  <button mat-button class="back-button" routerLink="/health-record">Back</button>
+</div>

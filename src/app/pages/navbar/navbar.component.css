@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+  }
+  
+  /* .toolbar {
+    display: flex;
+  } */
+  
+  .active-link {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  .dashboard-content {
+    padding: 16px;
+  }
+  
+  .sidenav{
+    width: 240px;
+    height: 100%;
+  }
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:gray;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-left: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 20px;
+    }
+  }
+  
+  
+  

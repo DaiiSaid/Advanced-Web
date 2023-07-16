@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Expenses</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="saveExpenses()" #expensesForm="ngForm">
+        <mat-form-field>
+          <mat-label>Bags of Food Purchased (per week)</mat-label>
+          <input matInput type="number" name="bagsOfFood" [(ngModel)]="bagsOfFood" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Price per Bag of Food (TZS)</mat-label>
+          <input matInput type="number" name="pricePerBag" [(ngModel)]="pricePerBag" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Water Expenses (per week, TZS)</mat-label>
+          <input matInput type="number" name="waterExpenses" [(ngModel)]="waterExpenses" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Medication Expenses (per week, TZS)</mat-label>
+          <input matInput name="medicationExpenses" [(ngModel)]="medicationExpenses" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="expensesForm.invalid">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

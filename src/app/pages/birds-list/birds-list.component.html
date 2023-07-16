@@ -1,0 +1,38 @@
+<h1>Birds List</h1>
+
+<mat-table [dataSource]="birds">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let bird; let i = index;">{{i + 1}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let bird">{{ bird.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="breed">
+    <mat-header-cell *matHeaderCellDef>Breed</mat-header-cell>
+    <mat-cell *matCellDef="let bird">{{ bird.breed }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+    <mat-cell *matCellDef="let bird">{{ bird.gender }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="birthDate">
+    <mat-header-cell *matHeaderCellDef>Birth Date</mat-header-cell>
+    <mat-cell *matCellDef="let bird">{{ bird.birthDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let bird">
+      <a (click)="view(bird.birdId)">View Details</a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['id', 'name', 'breed', 'gender', 'birthDate', 'actions']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['id', 'name', 'breed', 'gender', 'birthDate', 'actions'];"></mat-row>
+</mat-table>

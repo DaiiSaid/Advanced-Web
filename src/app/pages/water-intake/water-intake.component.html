@@ -1,0 +1,64 @@
+<form (submit)="addWaterIntake()">
+  <!-- <mat-form-field>
+    <mat-label>Bird:</mat-label>
+    <mat-select name="birdId" [(ngModel)]="newWaterIntake.birdId" required>
+      <mat-option *ngFor="let bird of birds" [value]="bird.birdId">{{ bird.birdId }}</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <mat-label>Amount:</mat-label>
+    <input matInput type="number" name="amount" [(ngModel)]="newWaterIntake.amount" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date:</mat-label>
+    <input matInput type="date" name="intakeDate" [(ngModel)]="newWaterIntake.intakeDate" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Source:</mat-label>
+    <input matInput type="text" name="source" [(ngModel)]="newWaterIntake.source" required>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Add Water Intake</button>
+</form>
+
+
+<!-- <h2>Water Intake</h2>
+
+<div *ngIf="waterIntakes.length === 0">No water intake records found.</div>
+
+<table mat-table *ngIf="waterIntakes.length > 0" class="mat-elevation-z8">
+  <ng-container matColumnDef="intakeDate">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let waterIntake">{{ waterIntake.intakeDate | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="birdId">
+    <th mat-header-cell *matHeaderCellDef>Bird</th>
+    <td mat-cell *matCellDef="let waterIntake">{{ waterIntake.birdId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let waterIntake">{{ waterIntake.amount }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="source">
+    <th mat-header-cell *matHeaderCellDef>Source</th>
+    <td mat-cell *matCellDef="let waterIntake">{{ waterIntake.source }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let waterIntake">
+      <button mat-icon-button (click)="deleteWaterIntake(waterIntake.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let waterIntake; columns: displayedColumns;"></tr>
+</table> -->
